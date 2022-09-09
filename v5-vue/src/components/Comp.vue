@@ -1,14 +1,20 @@
 <script setup>
-const text = "V5-Vue";
 const props = defineProps({
   msg: String,
-});
+})
+
+const emits = defineEmits (['clicou'])
+
+const clickHandler = () => {
+  emits('clicou', props.msg);
+};
+
 </script>
 
 <template>
   <div>
-    {{ text }}
-    <br />
     {{ props.msg }}
+
+    <button @click="clickHandler">Press the button</button>
   </div>
 </template>
